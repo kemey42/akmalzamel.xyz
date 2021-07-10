@@ -53,9 +53,9 @@
 							<a href="https://github.com/kemey42" 
 								class="list-group-item list-group-item-action h5">
 								<span class="mouse-off"><i class="fab fa-github"></i></span>
-								<span class="mouse-on">Github</span>
+								<span class="mouse-on">GitHub</span>
 							</a>
-							<a href="http://akmalzamel.xyz/blog/" 
+							<a href="https://akmalzamel.xyz/blog/" 
 								class="list-group-item list-group-item-action h5">
 								<span class="mouse-off"><i class="fas fa-blog"></i></span>
 								<span class="mouse-on">Blog</span>
