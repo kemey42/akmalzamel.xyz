@@ -9,3 +9,11 @@ GitHubActivity.feed({
     selector: "#github-feed",
     limit: 20, // optional
 });
+
+// Wait for window load
+$(window).load(function () {
+    setTimeout(function () {
+        // Animate loader off screen
+        $(".loading-screen").fadeOut("slow");;
+    }, 1000);
+});

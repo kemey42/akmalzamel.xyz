@@ -3,7 +3,6 @@
     --yellow: rgba(225, 173, 1, 0.6);
     --green: #007580;
     --dark-blue: #282846;
-    /* --dark-blue: #22272E; */
     --light-blue: #D8EBE4;
     --light-grey: #cccccc;
 }
@@ -22,7 +21,6 @@ body {
 body {
     display: grid;
     align-items: center;
-    /* background: #e0e0e0; */
     background: var(--dark-blue);
     font-family: 'Advent Pro';
 }
@@ -38,7 +36,7 @@ main {
     margin: auto;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 576px) {
     #content {
         max-width: 300px;
     }
@@ -46,7 +44,7 @@ main {
 
 @media (min-width: 768px) {
     #content {
-        max-width: 300px;
+        max-width: 720px;
     }
 }
 
@@ -81,57 +79,34 @@ a:hover {
     color: var(--yellow);
 }
 
+/* Custom Scrollbar */
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--green) var(--dark-blue);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--dark-blue);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+    border-radius: 20px;
+    border: 3px solid var(--dark-blue);
+}
+
 /* Particle-js */
 #particles-js {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -2;
-}
-
-/* Orbit balls (no longer used) */
-.orbit-balls {
-    position: relative;
-}
-
-.orbit-balls:before,
-.orbit-balls:after {
-    animation: orbit 5s linear infinite;
-    border-radius: 50%;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-    content: '';
-    height: 150px;
-    position: absolute;
-    width: 150px;
-}
-
-.orbit-balls:before {
-    background: #ffe897;
-    background: -moz-radial-gradient(top right, #ffe897, #f98a05);
-    background: radial-gradient(to bottom left, #ffe897, #f98a05);
-    background: -webkit-radial-gradient(top right, #ffe897, #f98a05);
-    z-index: -2;
-}
-
-.orbit-balls:after {
-    animation-delay: 2.5s;
-    background: #e0e793;
-    background: -moz-radial-gradient(bottom right, #e0e793, #6dd0f1);
-    background: radial-gradient(to top left, #e0e793, #6dd0f1);
-    background: -webkit-radial-gradient(bottom right, #e0e793, #6dd0f1);
-    right: 0;
-    top: 0;
-    z-index: -2;
-}
-
-@keyframes orbit {
-    from {
-        transform: rotate(0deg) translateX(200px) rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg) translateX(200px) rotate(-360deg);
-    }
 }
 
 /* Glass card */
@@ -163,7 +138,6 @@ form {
 
 .round-photo {
     border-radius: 50%;
-
 }
 
 .shadow {
@@ -201,43 +175,13 @@ form {
     background-color: transparent;
 }
 
-/* Fade out and fade in animation */
-.fade-out {
-    animation: fadeOut 1s;
-    -webkit-animation: fadeOut 1s;
-    -moz-animation: fadeOut 1s;
-    -o-animation: fadeOut 1s;
-    -ms-animation: fadeOut 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-        height: 100%;
-    }
-
-    80% {
-        opacity: 1;
-        visibility: visible;
-        height: 100%;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-        height: 0;
-    }
-}
-
+/* Fade in animation */
 .fade-in {
-    animation: fadeIn 3s;
-    -webkit-animation: fadeIn 3s;
-    -moz-animation: fadeIn 3s;
-    -o-animation: fadeIn 3s;
-    -ms-animation: fadeIn 3s;
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {
@@ -264,6 +208,11 @@ form {
 }
 
 /* Github activity feeds */
+
+#github-feed.scroll {
+    max-height: 424px;
+    overflow-y: auto;
+}
 
 .gaf-feed.list-group {
     background-color: transparent;
@@ -344,7 +293,7 @@ span.gaf-time {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 
-.gha-gravatar-user {
+.gaf-gravatar-user {
     float: left;
 }
 
@@ -362,4 +311,15 @@ span.gaf-time {
 ul.gaf-commits {
     list-style-type: none;
     margin: 0;
+}
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
 }
