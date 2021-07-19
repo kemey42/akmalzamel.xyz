@@ -1,3 +1,14 @@
+/* Colour pallete */
+:root {
+    --yellow: rgba(225, 173, 1, 0.6);
+    --green: #007580;
+    --dark-blue: #282846;
+    /* --dark-blue: #22272E; */
+    --light-blue: #D8EBE4;
+    --light-grey: #cccccc;
+}
+
+/* Page layout */
 * {
     margin: 0;
     padding: 0;
@@ -11,24 +22,70 @@ body {
 body {
     display: grid;
     align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background: #e0e0e0;
+    /* background: #e0e0e0; */
+    background: var(--dark-blue);
     font-family: 'Advent Pro';
 }
 
+main {
+    height: 100%;
+}
+
+#content {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 0px;
+    margin: auto;
+}
+
+@media (min-width: 300px) {
+    #content {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    #content {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    #content {
+        max-width: 900px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #content {
+        max-width: 900px;
+    }
+}
+
+/* Font colour */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
+a,
+span,
 p {
     padding: 0;
     margin: 0;
-    color: #272727;
+    color: var(--light-grey);
 }
 
+/* Particle-js */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* Orbit balls (no longer used) */
 .orbit-balls {
     position: relative;
 }
@@ -63,25 +120,29 @@ p {
     z-index: -2;
 }
 
-main {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(200px) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    }
 }
 
+/* Glass card */
 .glass {
     padding: 15px;
-    border: 1px solid #fff;
-    border-radius: 15px;
+    /* border: 1px solid #fff; */
+    border-radius: 10px;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
     position: relative;
 }
 
 .glass:before {
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
     content: '';
     height: 100%;
     width: 100%;
@@ -91,6 +152,7 @@ main {
     left: -1px;
 }
 
+/* Main column */
 form {
     z-index: 2;
 }
@@ -107,37 +169,62 @@ form {
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
-.list-group a {
+#my-links.list-group a {
     background-color: transparent;
 }
 
-.list-group a:hover {
-    background-color:rgba(225, 173, 1, 0.6);
+#my-links.list-group a:hover {
+    background-color: var(--yellow);
 }
 
-.list-group a .mouse-off {
+#my-links.list-group a .mouse-off {
     display: inline;
 }
 
-.list-group a .mouse-on {
+#my-links.list-group a .mouse-on {
     display: none;
 }
 
-.list-group a:hover .mouse-on {
+#my-links.list-group a:hover .mouse-on {
     display: inline;
 }
 
-.list-group a:hover .mouse-off {
+#my-links.list-group a:hover .mouse-off {
     display: none;
 }
 
-@keyframes orbit {
-    from {
-        transform: rotate(0deg) translateX(200px) rotate(0deg);
+#my-links.list-group a.selected {
+    background-color: transparent;
+}
+
+/* Fade out and fade in animation */
+.fade-out {
+    animation: fadeOut 1s;
+    -webkit-animation: fadeOut 1s;
+    -moz-animation: fadeOut 1s;
+    -o-animation: fadeOut 1s;
+    -ms-animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
     }
 
-    to {
-        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    80% {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+        height: 0;
     }
 }
 
@@ -153,185 +240,21 @@ form {
     0% {
         opacity: 0;
         visibility: hidden;
+        backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
+        bottom: -30px;
     }
 
-    80% {
+    40% {
         opacity: 0;
         visibility: hidden;
+        backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
+        bottom: -30px;
     }
 
     100% {
         opacity: 1;
         visibility: visible;
-    }
-}
-
-@-moz-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    80% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    80% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-@-o-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    80% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-@-ms-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    80% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.fade-out {
-    animation: fadeOut 2s;
-    -webkit-animation: fadeOut 2s;
-    -moz-animation: fadeOut 2s;
-    -o-animation: fadeOut 2s;
-    -ms-animation: fadeOut 2s;
-    animation-fill-mode: forwards;
-    position: absolute;
-    width: 300px;
-    margin-top: 55px;
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    80% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-    }
-}
-
-@-moz-keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    80% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-    }
-}
-
-@-webkit-keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    80% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-    }
-}
-
-@-o-keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    80% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-    }
-}
-
-@-ms-keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    80% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
+        backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
+        bottom: 0px;
     }
 }
