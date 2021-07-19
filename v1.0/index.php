@@ -23,10 +23,8 @@
 	<!-- Google Font CSS -->
 	<link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
 	<link href="css/all.css" rel="stylesheet">
-	<!-- Github Activity CSS -->
-	<link rel="stylesheet" href="node_modules/octicons/build/font/octicons.css">
-	<link rel="stylesheet" href="css/github-activity.css">
-	<link rel="stylesheet" href="css/github-activity.dark.css">
+	<!-- Octicon CSS -->
+	<link href="webfonts/octicons.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel="stylesheet">
 
@@ -92,7 +90,7 @@
 				<div class="col-lg-8">
 					<div class="fade-in glass m-1">
 						<h6>Recent GitHub Activities</h6>
-						<div id="feed" class="mt-3"></div>
+						<div id="github-feed" class="mt-3"></div>
 					</div>
 				</div>
 				<!--Card 2-->

@@ -6,6 +6,6 @@ particlesJS.load('particles-js', '../assets/particles.json', function () {
 GitHubActivity.feed({
     username: "kemey42",
     repository: "", // optional
-    selector: "#feed",
-    limit: 5, // optional
+    selector: "#github-feed",
+    limit: 20, // optional
 });
