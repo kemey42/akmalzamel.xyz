@@ -11,3 +11,4 @@ Date      | Description
 20210719  | Add particlejs, github activity
 20210719A | Custom github activity css 
 20210719B | New loading page, fix responsive layout
+20210731  | Resume version
