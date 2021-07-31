@@ -1,10 +1,15 @@
+/* 
+    Custom stylesheet for akmalzamel.xyx
+*/
+
 /* Colour pallete */
 :root {
-    --yellow: rgba(225, 173, 1, 0.6);
+    --yellow: #e1ad01;
     --green: #007580;
+    --light-green: #D8EBE4;
     --dark-blue: #282846;
-    --light-blue: #D8EBE4;
     --light-grey: #cccccc;
+    --dark-grey: #495057;
 }
 
 /* Page layout */
@@ -13,54 +18,19 @@
     padding: 0;
 }
 
-html,
-body {
-    height: 100%;
-}
-
 body {
     display: grid;
     align-items: center;
-    background: var(--dark-blue);
-    font-family: 'Advent Pro';
+    background: var(--light-green);
+
 }
 
-main {
-    height: 100%;
+.breathe {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
-#content {
-    width: 100%;
-    max-width: 300px;
-    padding: 15px 0px;
-    margin: auto;
-}
-
-@media (min-width: 576px) {
-    #content {
-        max-width: 300px;
-    }
-}
-
-@media (min-width: 768px) {
-    #content {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    #content {
-        max-width: 900px;
-    }
-}
-
-@media (min-width: 1200px) {
-    #content {
-        max-width: 900px;
-    }
-}
-
-/* Font colour */
+/* Font styling */
 h1,
 h2,
 h3,
@@ -72,21 +42,46 @@ span,
 p {
     padding: 0;
     margin: 0;
+}
+
+body {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.mono {
+    font-family: 'Advent Pro';
+}
+
+.dark-text {
+    color: var(--dark-grey);
+}
+
+.dark-text a {
+    color: var(--light-green);
+}
+
+.dark-text a:hover {
+    color: var(--green);
+}
+
+.light-text {
     color: var(--light-grey);
 }
 
-a:hover {
-    color: var(--yellow);
+.light-text a {
+    color: var(--light-grey);
+}
+
+.light-text a:hover {
+    color: var(--green);
 }
 
 /* Custom Scrollbar */
-/* Works on Firefox */
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--green) var(--dark-blue);
 }
 
-/* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
     width: 12px;
 }
@@ -106,73 +101,80 @@ a:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: -2;
+}
+
+/* Jumbotron sections */
+.jumbotron {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.jumbotron.inset-shadow {
+    box-shadow: inset 0px 5px 10px -6px;
+}
+
+.jumbotron.jumbotron-header {
+    background: var(--dark-blue);
+}
+
+.jumbotron.jumbotron-about {
+    background: var(--green);
+}
+
+.jumbotron.jumbotron-skill {
+    background: whitesmoke;
+}
+
+.jumbotron.jumbotron-experience {
+    background: var(--light-green);
+}
+
+.jumbotron.jumbotron-education {
+    background: whitesmoke;
+}
+
+.jumbotron.jumbotron-github {
+    background: var(--dark-blue);
+}
+
+.jumbotron.jumbotron-contact {
+    background: var(--light-green);
 }
 
 /* Glass card */
 .glass {
     padding: 15px;
-    /* border: 1px solid #fff; */
     border-radius: 10px;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
     overflow: hidden;
     position: relative;
 }
 
-.glass:before {
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: -1;
-    top: -1px;
-    left: -1px;
+.glass.shadow {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Main column */
-form {
-    z-index: 2;
+.glass.shadow-on-white {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+        0 18px 36px -18px rgba(0, 0, 0, 0.3),
+        0 -12px 36px -8px rgba(0, 0, 0, 0.025);
 }
 
-.round-photo {
+/* Image styling */
+.img-round {
     border-radius: 50%;
 }
 
-.shadow {
+.img-shadow {
     box-shadow:
         inset 0 -3em 3em rgba(0, 0, 0, 0.1),
         0 0 0 0 rgb(255, 255, 255),
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-}
-
-#my-links.list-group a {
-    background-color: transparent;
-}
-
-#my-links.list-group a:hover {
-    background-color: var(--yellow);
-}
-
-#my-links.list-group a .mouse-off {
-    display: inline;
-}
-
-#my-links.list-group a .mouse-on {
-    display: none;
-}
-
-#my-links.list-group a:hover .mouse-on {
-    display: inline;
-}
-
-#my-links.list-group a:hover .mouse-off {
-    display: none;
-}
-
-#my-links.list-group a.selected {
-    background-color: transparent;
 }
 
 /* Fade in animation */
@@ -188,21 +190,18 @@ form {
     0% {
         opacity: 0;
         visibility: hidden;
-        backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
         bottom: -30px;
     }
 
     40% {
         opacity: 0;
         visibility: hidden;
-        backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
         bottom: -30px;
     }
 
     100% {
         opacity: 1;
         visibility: visible;
-        backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
         bottom: 0px;
     }
 }
@@ -214,112 +213,154 @@ form {
     overflow-y: auto;
 }
 
-.gaf-feed.list-group {
+#github-feed .list-group-item {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    color: var(--light-grey);
     background-color: transparent;
 }
 
-.gaf-activity.list-group-item {
-    background-color: transparent;
+#github-feed a {
+    text-decoration: none !important;
 }
 
-.gaf-feed {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    font-size: 14px;
-    color: #bbb;
-    font-family: arial, sans-serif;
-}
-
-.gaf-activity {
-    clear: both;
-    padding: 10px 0;
-    width: 100%;
-}
-
-.gaf-activity span {
-    font-size: 16px;
-}
-
-.octicon {
+#github-feed .octicon {
     display: inline-block;
     vertical-align: text-top;
     fill: currentColor;
-}
-
-.gaf-activity-icon .octicon {
-    display: inline;
-    float: left;
-    clear: both;
-    margin: 6px auto;
-    width: 40px;
-    color: #bbb;
-    text-align: center;
     font: normal normal 16px octicons;
 }
 
-.gaf-message {
+#github-feed .gaf-message {
     display: inline-block;
-    width: calc(100% - 40px);
+    width: 100%;
 }
 
-.gaf-message-commits {
-    font-size: 12px;
+#github-feed .gaf-message-commits {
+    font-weight: 100;
+    font-size: 0.8rem;
 }
 
-.gaf-message-merge {
+#github-feed .gaf-message-merge {
     padding: 3px 7px;
     border-radius: 3px;
-    background: #e8f1f6;
-    color: #6c757d;
-    font-size: 12px;
+    background: var(--green);
+    color: var(--light-grey);
     line-height: 2.0;
 }
 
-.gaf-time {
-    color: #bbb;
-    font-weight: normal;
-    font-size: 12px;
+#github-feed .sml-text {
+    font-weight: 100;
+    font-size: 0.8rem;
 }
 
-span.gaf-time {
-    color: #bbb;
-    font-weight: normal;
-    font-size: 12px;
+#github-feed small {
+    font-weight: 100;
+    font-size: 0.8rem;
 }
 
-.gaf-sha {
-    font-size: 12px;
+#github-feed .gaf-sha {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 
-.gaf-gravatar-user {
-    float: left;
-}
-
-.gaf-gravatar-small {
+#github-feed .gaf-gravatar-small {
     float: left;
     margin-right: 6px;
-    width: 44px;
+    width: 52px;
     border-radius: 50%;
 }
 
-.gaf-gravatar-commit {
-    border-radius: 50%;
-}
-
-ul.gaf-commits {
+#github-feed ul.commits {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Timeline List */
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 0rem;
+}
+
+@media (min-width: 768px) {
+    ul.timeline {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+ul.timeline:before {
+    content: ' ';
+    background: var(--dark-blue);
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    width: 2px;
+    height: 100%;
+    z-index: 3;
+}
+
+ul.timeline>li {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+ul.timeline>li>h5 {
+    padding-left: 0rem;
+}
+
+ul.timeline>li a {
+    color: var(--dark-grey);
+    text-decoration: none !important;
+}
+
+ul.timeline>li:before {
+    content: ' ';
+    background: var(--light-green);
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid var(--dark-blue);
+    left: -9px;
+    width: 20px;
+    height: 20px;
+    z-index: 4;
+}
+
+ul.timeline .glass {
+    padding: 0;
     margin: 0;
 }
 
-.no-js #loader {
-    display: none;
+ul.timeline>li .glass>a .fa {
+    transition: .3s transform ease-in-out;
 }
 
-.js #loader {
-    display: block;
-    position: absolute;
-    left: 100px;
-    top: 0;
+ul.timeline>li .glass>a.collapsed .fa {
+    transform: rotate(90deg);
+}
+
+/* Badge */
+.badge {
+    font-weight: 100;
+    font-size: 90%;
+}
+
+.badge.badge-primary {
+    background-color: var(--green);
+}
+
+/* Button */
+.button-pdf {
+    position: fixed;
+    background: var(--yellow);
+    width: 40px;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+}
+
+.nounderline {
+    text-decoration: none !important
 }
