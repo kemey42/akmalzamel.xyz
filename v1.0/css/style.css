@@ -4,12 +4,13 @@
 
 /* Colour pallete */
 :root {
-    --yellow: #e1ad01;
+    --yellow: #F9A826;
     --green: #007580;
-    --light-green: #D8EBE4;
-    --dark-blue: #282846;
-    --light-grey: #cccccc;
-    --dark-grey: #495057;
+    --purple: #282846;
+    --light-blue: #C2D0E6;
+    --dark-blue: #1C4670;
+    --light-grey: #E9EAEC;
+    --dark-grey: #272A30;
 }
 
 /* Page layout */
@@ -21,13 +22,15 @@
 body {
     display: grid;
     align-items: center;
-    background: var(--light-green);
+    background: var(--dark-grey);
+    background: linear-gradient(to right, #1c467093, #0075809d), url("../assets/keyboard.jpg") no-repeat center center fixed;
+    background-size: cover;
 
 }
 
 .breathe {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
 
 /* Font styling */
@@ -52,16 +55,20 @@ body {
     font-family: 'Advent Pro';
 }
 
+.bold {
+    font-family: 'Raleway', sans-serif;
+}
+
 .dark-text {
     color: var(--dark-grey);
 }
 
 .dark-text a {
-    color: var(--light-green);
+    color: var(--dark-grey);
 }
 
 .dark-text a:hover {
-    color: var(--green);
+    color: var(--purple);
 }
 
 .light-text {
@@ -73,28 +80,18 @@ body {
 }
 
 .light-text a:hover {
-    color: var(--green);
+    color: var(--purple);
 }
 
-/* Custom Scrollbar */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--green) var(--dark-blue);
+.bg-nav {
+    background: linear-gradient(to right, var(--green), #ffbe56f0);
 }
 
-*::-webkit-scrollbar {
-    width: 12px;
+.bg-canvas {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.849), rgba(245, 245, 245, 0.747));
+    backdrop-filter: blur(25px) saturate(100%) contrast(105%) brightness(130%);
 }
 
-*::-webkit-scrollbar-track {
-    background: var(--dark-blue);
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: var(--green);
-    border-radius: 20px;
-    border: 3px solid var(--dark-blue);
-}
 
 /* Particle-js */
 #particles-js {
@@ -113,12 +110,8 @@ body {
     border-radius: 0;
 }
 
-.jumbotron.inset-shadow {
-    box-shadow: inset 0px 5px 10px -6px;
-}
-
 .jumbotron.jumbotron-header {
-    background: var(--dark-blue);
+    background: transparent;
 }
 
 .jumbotron.jumbotron-about {
@@ -130,19 +123,19 @@ body {
 }
 
 .jumbotron.jumbotron-experience {
-    background: var(--light-green);
+    background: #f9fafb;
 }
 
 .jumbotron.jumbotron-education {
     background: whitesmoke;
 }
 
-.jumbotron.jumbotron-github {
-    background: var(--dark-blue);
+.jumbotron.jumbotron-award {
+    background: var(--green);
 }
 
 .jumbotron.jumbotron-contact {
-    background: var(--light-green);
+    background: transparent;
 }
 
 /* Glass card */
@@ -150,19 +143,9 @@ body {
     padding: 15px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px) saturate(100%) contrast(105%) brightness(130%);
+    backdrop-filter: blur(25px) saturate(100%) contrast(105%) brightness(130%);
     overflow: hidden;
     position: relative;
-}
-
-.glass.shadow {
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-}
-
-.glass.shadow-on-white {
-    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
-        0 18px 36px -18px rgba(0, 0, 0, 0.3),
-        0 -12px 36px -8px rgba(0, 0, 0, 0.025);
 }
 
 /* Image styling */
@@ -214,8 +197,9 @@ body {
 }
 
 #github-feed .list-group-item {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    color: var(--light-grey);
+    font-family: Arial, sans-serif;
+    font-size: 90%;
+    color: var(--dark-grey);
     background-color: transparent;
 }
 
@@ -279,8 +263,8 @@ body {
 ul.timeline {
     list-style-type: none;
     position: relative;
-    padding-left: 1rem;
-    padding-right: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 @media (min-width: 768px) {
@@ -288,17 +272,39 @@ ul.timeline {
         padding-left: 3rem;
         padding-right: 3rem;
     }
+
+    ul.timeline:before {
+        content: ' ';
+        background: var(--light-grey);
+        display: inline-block;
+        position: absolute;
+        left: 15px;
+        width: 2px;
+        height: 100%;
+        z-index: 3;
+    }
+
+    ul.timeline>li:before {
+        content: ' ';
+        background: gray;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 5px solid whitesmoke;
+        left: 6px;
+        width: 20px;
+        height: 20px;
+        z-index: 4;
+    }
+
+    ul.timeline>li:first-child:before {
+        background: whitesmoke;
+        border: 3px solid gray;
+    }
 }
 
-ul.timeline:before {
-    content: ' ';
-    background: var(--dark-blue);
-    display: inline-block;
-    position: absolute;
-    left: 0px;
-    width: 2px;
-    height: 100%;
-    z-index: 3;
+ul.timeline>li:first-child {
+    margin-top: 0rem !important;
 }
 
 ul.timeline>li {
@@ -306,8 +312,9 @@ ul.timeline>li {
     margin-bottom: 3rem !important;
 }
 
-ul.timeline>li>h5 {
-    padding-left: 0rem;
+ul.timeline>li .date {
+    padding-left: 0rem !important;
+    margin-bottom: 1.5rem !important;
 }
 
 ul.timeline>li a {
@@ -315,30 +322,32 @@ ul.timeline>li a {
     text-decoration: none !important;
 }
 
-ul.timeline>li:before {
-    content: ' ';
-    background: var(--light-green);
-    display: inline-block;
-    position: absolute;
-    border-radius: 50%;
-    border: 3px solid var(--dark-blue);
-    left: -9px;
-    width: 20px;
-    height: 20px;
-    z-index: 4;
-}
 
-ul.timeline .glass {
-    padding: 0;
-    margin: 0;
-}
-
-ul.timeline>li .glass>a .fa {
+ul.timeline>li a .fa {
     transition: .3s transform ease-in-out;
 }
 
-ul.timeline>li .glass>a.collapsed .fa {
+ul.timeline>li a.collapsed .fa {
     transform: rotate(90deg);
+}
+
+ul.timeline>li .card-header.accenture-bg {
+    color: var(--light-grey);
+    background: linear-gradient(to right, var(--green), #ffbe56f0), url(/assets/accenture-logo.png) no-repeat center right;
+}
+
+ul.timeline>li .card-header.juris-bg {
+    color: var(--light-grey);
+    background: linear-gradient(to right, var(--green), #ffbe56f0), url(/assets/juris-logo.png) no-repeat center right;
+}
+
+ul.timeline>li .card-header.freescale-bg {
+    color: var(--light-grey);
+    background: linear-gradient(to right, var(--green), #ffbe56f0), url(/assets/freescale-logo.png) no-repeat center right;
+}
+
+ul.timeline>li .card-header {
+    background-color: var(--light-grey);
 }
 
 /* Badge */
@@ -348,19 +357,23 @@ ul.timeline>li .glass>a.collapsed .fa {
 }
 
 .badge.badge-primary {
+    color: var(--light-grey);
     background-color: var(--green);
 }
 
 /* Button */
-.button-pdf {
+.floating-btn {
     position: fixed;
-    background: var(--yellow);
     width: 40px;
-    top: 10px;
-    left: 10px;
+    bottom: 20px;
+    right: 20px;
     z-index: 5;
 }
 
 .nounderline {
     text-decoration: none !important
+}
+
+.offcanvas-end {
+    width: 500px;
 }
