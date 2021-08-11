@@ -12,3 +12,4 @@ Date      | Description
 20210719A | Custom github activity css 
 20210719B | New loading page, fix responsive layout
 20210731  | Resume version
+20210810  | Improve resume design, remove particlejs
