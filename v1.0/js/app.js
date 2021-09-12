@@ -7,26 +7,60 @@
 //     console.log('callback - particles.js config loaded');
 // });
 
-// GitHubActivity
-GitHubActivity.feed({
-  username: "kemey42",
-  repository: "", // optional
-  selector: "#github-feed",
-  limit: 20, // optional
-});
+class TypeWriter {
+  constructor(txtElement, str, wait = 3000) {
+    this.txtElement = txtElement;
+    this.str = str;
+    this.txt = "";
+    this.strIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
+  }
 
-// Bootstrap tooltip
-var tooltipTriggerList = [].slice.call(
-  document.querySelectorAll('[data-bs-toggle="tooltip"]')
-);
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl);
-});
+  type() {
+    const i = this.strIndex % this.str.length;
+    const fullTxt = this.str[i];
 
-var screen_height = screen.height;
-var navbar_height = document.querySelector(".navbar").offsetHeight;
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
 
-document.addEventListener("DOMContentLoaded", function () {
+    let typeSpeed = 100;
+    if (this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      typeSpeed = this.wait;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === "") {
+      typeSpeed = 500;
+      this.isDeleting = false;
+      this.strIndex++;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+function init() {
+  // Init Bootstrap tooltip
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+
+  //Init navbar
+  var screen_height = screen.height;
+  var navbar_height = document.querySelector(".navbar").offsetHeight;
+
   window.addEventListener("scroll", function () {
     if (window.scrollY > screen_height - navbar_height) {
       document.getElementById("navbar_top").classList.add("fixed-top");
@@ -38,12 +72,28 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.paddingTop = "0";
     }
   });
+
+  //Init typewriter
+  const txtElement = document.querySelector(".txt-type");
+  const str = JSON.parse(txtElement.getAttribute("data-str"));
+  const wait = txtElement.getAttribute("data-wait");
+  new TypeWriter(txtElement, str, wait);
+
+  // GitHubActivity
+  GitHubActivity.feed({
+    username: "kemey42",
+    repository: "", // optional
+    selector: "#github-feed",
+    limit: 20, // optional
+  });
+}
+
+$(document).ready(function () {
+  // executes when HTML-Document is loaded and DOM is ready
+  init();
 });
 
-// Wait for window load
 $(window).load(function () {
-  setTimeout(function () {
-    // Animate loader off screen
-    $(".loading-screen").fadeOut("slow");
-  }, "fast");
+  // executes when complete page is fully loaded, including all frames, objects and images
+  $(".loading-screen").fadeOut(1000);
 });
