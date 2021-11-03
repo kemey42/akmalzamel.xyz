@@ -14,3 +14,4 @@ Changelog:
 | 20210731  | Resume version                           |
 | 20210810  | Improve resume design, remove particlejs |
 | 20210912  | About section as typewriter              |
+| 20211103  | Update resume content                    |

@@ -4,11 +4,14 @@
 
 /* Colour pallete */
 :root {
-  --yellow: #f9a826;
-  --green: #007580;
-  --purple: #282846;
-  --light-blue: #c2d0e6;
-  --dark-blue: #1c4670;
+  --yellow: #ffbe56f0;
+  --green: #0a7783;
+
+  --purple: #000000;
+
+  --light-blue: #007580c9;
+  --dark-blue: #1c4670b7;
+
   --light-grey: #e9eaec;
   --dark-grey: #272a30;
 }
@@ -23,9 +26,6 @@ body {
   display: grid;
   align-items: center;
   background: var(--dark-grey);
-  background: linear-gradient(to right, #1c467093, #0075809d),
-    url("../assets/keyboard.jpg") no-repeat center center fixed;
-  background-size: cover;
 }
 
 .breathe {
@@ -84,7 +84,7 @@ body {
 }
 
 .bg-nav {
-  background: linear-gradient(to right, var(--green), #ffbe56f0);
+  background: linear-gradient(to right, var(--green), var(--yellow));
 }
 
 .bg-canvas {
@@ -114,7 +114,9 @@ body {
 }
 
 .jumbotron.jumbotron-header {
-  background: transparent;
+  background: linear-gradient(to right, var(--dark-blue), var(--light-blue)),
+    url("../assets/keyboard.jpg") no-repeat center center;
+  background-size: cover;
 }
 
 .jumbotron.jumbotron-about {
@@ -138,7 +140,9 @@ body {
 }
 
 .jumbotron.jumbotron-contact {
-  background: transparent;
+  background: linear-gradient(to right, var(--dark-blue), var(--light-blue)),
+    url("../assets/keyboard.jpg") no-repeat center center;
+  background-size: cover;
 }
 
 /* Glass card */
@@ -333,19 +337,19 @@ ul.timeline > li a.collapsed .fa {
 
 ul.timeline > li .card-header.accenture-bg {
   color: var(--light-grey);
-  background: linear-gradient(to right, var(--green), #ffbe56f0),
+  background: linear-gradient(to right, var(--green), var(--yellow)),
     url(/assets/accenture-logo.png) no-repeat center right;
 }
 
 ul.timeline > li .card-header.juris-bg {
   color: var(--light-grey);
-  background: linear-gradient(to right, var(--green), #ffbe56f0),
+  background: linear-gradient(to right, var(--green), var(--yellow)),
     url(/assets/juris-logo.png) no-repeat center right;
 }
 
 ul.timeline > li .card-header.freescale-bg {
   color: var(--light-grey);
-  background: linear-gradient(to right, var(--green), #ffbe56f0),
+  background: linear-gradient(to right, var(--green), var(--yellow)),
     url(/assets/freescale-logo.png) no-repeat center right;
 }
 
