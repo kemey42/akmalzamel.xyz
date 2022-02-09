@@ -15,3 +15,4 @@ Changelog:
 | 20210810  | Improve resume design, remove particlejs |
 | 20210912  | About section as typewriter              |
 | 20211103  | Update resume content                    |
+| 20220209  | Just landing page                        |
